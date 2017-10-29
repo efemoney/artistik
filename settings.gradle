@@ -1,0 +1,3 @@
+include ':example', ':artistik'
+
+rootProject.name = "artistik-project"
