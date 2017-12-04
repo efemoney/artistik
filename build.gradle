@@ -2,47 +2,45 @@
 
 buildscript {
 
-    ext.versions = [
-            agp    : '3.0.0',
-            kotlin : '1.2.0-beta-88',
+  ext.versions = [
+      agp: '3.0.1',
+      kotlin: '1.2.0',
 
-            support: '26.1.0'
-    ]
+      support: '26.1.0'
+  ]
 
-    ext.deps = [
+  ext.deps = [
 
-            androidPlugin: "com.android.tools.build:gradle:$versions.agp",
-            kotlinPlugin : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+      androidPlugin: "com.android.tools.build:gradle:$versions.agp",
+      kotlinPlugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
 
-            kotlin       : [
-                    stdlib: "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-            ],
+      kotlin: [
+          stdlib: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+      ],
 
-            support      : [
-                    appcompat: "com.android.support:appcompat-v7:$versions.support"
-            ]
-    ]
+      support: [
+          appcompat: "com.android.support:appcompat-v7:$versions.support"
+      ]
+  ]
 
-    repositories {
-        google()
-        jcenter()
-        maven { url = 'https://dl.bintray.com/kotlin/kotlin-eap-1.2/' }
-    }
+  repositories {
+    google()
+    jcenter()
+  }
 
-    dependencies {
-        classpath deps.androidPlugin
-        classpath deps.kotlinPlugin
-    }
+  dependencies {
+    classpath deps.androidPlugin
+    classpath deps.kotlinPlugin
+  }
 }
 
 allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { url = 'https://dl.bintray.com/kotlin/kotlin-eap-1.2/' }
-    }
+  repositories {
+    google()
+    jcenter()
+  }
 }
 
 task clean(type: Delete) {
-    delete rootProject.buildDir
+  delete rootProject.buildDir
 }
